@@ -98,7 +98,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android" />
+  <meta name="keywords" content="RelativeLayout TextView RTL适配,TextView gravity失效," />
 
 
 
@@ -114,16 +114,17 @@
 
 
 
-<meta name="description" content="快速迭代与优秀程序员的执着今天下班的路上与老大争论了一个问题,一周一迭代的过程中,是否还要维持高质量的代码.我觉得挺有意思的,记录一下. 我的观点是不需要,只要功能完整,经过测试,无用户可以感知的bug就可以上线了.而我老大的观点是最好需要,理由是老大以前的老大是这么教的. 个人觉得老大完全是站在他想教育我的角度.开个玩笑=.= 在面对长期短平快的开发周期时,产品需求不明确,UE没有,UI产出慢,">
+<meta name="description" content="问题如下RelativeLayout中有一个图片和文字,一左一右,顶边,在RTL情况下发现,文字紧贴图片.">
+<meta name="keywords" content="RelativeLayout TextView RTL适配,TextView gravity失效">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速迭代与优秀程序员的执着">
-<meta property="og:url" content="http://yoursite.com/2017/08/03/快速迭代与优秀程序员的执着.html">
+<meta property="og:title" content="RelativeLayout中TextView适配RTL大坑记录">
+<meta property="og:url" content="http://yoursite.com/2017/08/08/RelativeLayoutAndRTL.html">
 <meta property="og:site_name" content="100斤的博客">
-<meta property="og:description" content="快速迭代与优秀程序员的执着今天下班的路上与老大争论了一个问题,一周一迭代的过程中,是否还要维持高质量的代码.我觉得挺有意思的,记录一下. 我的观点是不需要,只要功能完整,经过测试,无用户可以感知的bug就可以上线了.而我老大的观点是最好需要,理由是老大以前的老大是这么教的. 个人觉得老大完全是站在他想教育我的角度.开个玩笑=.= 在面对长期短平快的开发周期时,产品需求不明确,UE没有,UI产出慢,">
-<meta property="og:updated_time" content="2017-08-02T19:08:57.659Z">
+<meta property="og:description" content="问题如下RelativeLayout中有一个图片和文字,一左一右,顶边,在RTL情况下发现,文字紧贴图片.">
+<meta property="og:updated_time" content="2017-08-07T18:07:52.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="快速迭代与优秀程序员的执着">
-<meta name="twitter:description" content="快速迭代与优秀程序员的执着今天下班的路上与老大争论了一个问题,一周一迭代的过程中,是否还要维持高质量的代码.我觉得挺有意思的,记录一下. 我的观点是不需要,只要功能完整,经过测试,无用户可以感知的bug就可以上线了.而我老大的观点是最好需要,理由是老大以前的老大是这么教的. 个人觉得老大完全是站在他想教育我的角度.开个玩笑=.= 在面对长期短平快的开发周期时,产品需求不明确,UE没有,UI产出慢,">
+<meta name="twitter:title" content="RelativeLayout中TextView适配RTL大坑记录">
+<meta name="twitter:description" content="问题如下RelativeLayout中有一个图片和文字,一左一右,顶边,在RTL情况下发现,文字紧贴图片.">
 
 
 
@@ -151,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/03/快速迭代与优秀程序员的执着.html"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/08/RelativeLayoutAndRTL.html"/>
 
 
 
 
 
-  <title>快速迭代与优秀程序员的执着 | 100斤的博客</title>
+  <title>RelativeLayout中TextView适配RTL大坑记录 | 100斤的博客</title>
   
 
 
@@ -307,7 +308,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/03/快速迭代与优秀程序员的执着.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/08/RelativeLayoutAndRTL.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="100斤">
@@ -324,7 +325,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">快速迭代与优秀程序员的执着</h2>
+          <h2 class="post-title" itemprop="name headline">RelativeLayout中TextView适配RTL大坑记录</h2>
         
 
         <div class="post-meta">
@@ -336,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-03T02:42:51+08:00">
-                2017-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T01:48:16+08:00">
+                2017-08-08
               </time>
             
 
@@ -352,12 +353,34 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-08-03T03:08:57+08:00">
-                2017-08-03
+              <time title="更新于" itemprop="dateModified" datetime="2017-08-08T02:07:52+08:00">
+                2017-08-08
               </time>
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -367,7 +390,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/08/03/快速迭代与优秀程序员的执着.html#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/08/08/RelativeLayoutAndRTL.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -424,14 +447,47 @@
       
 
       
-        <h1 id="快速迭代与优秀程序员的执着"><a href="#快速迭代与优秀程序员的执着" class="headerlink" title="快速迭代与优秀程序员的执着"></a>快速迭代与优秀程序员的执着</h1><p>今天下班的路上与老大争论了一个问题,一周一迭代的过程中,是否还要维持高质量的代码.我觉得挺有意思的,记录一下.</p>
-<p>我的观点是不需要,只要功能完整,经过测试,无用户可以感知的bug就可以上线了.而我老大的观点是最好需要,理由是老大以前的老大是这么教的.</p>
-<p>个人觉得老大完全是站在他想教育我的角度.开个玩笑=.=</p>
-<p>在面对长期短平快的开发周期时,产品需求不明确,UE没有,UI产出慢,测试只有第一版的需求文档.这种情况下,整个客户端开发团队都是疲惫的.想要保持快速的开发从未做过的功能,又要维护代码质量几乎是不可能的.在移植代码的时候,很多都是功能优先.实现功能,没有bug,就转战其他功能了.</p>
-<p>我和老大的争论点其实是一个上线的时机.从开发功能到上线的节点大致可以分为:</p>
-<p>完成功能 -&gt; 测试 (解bug) - &gt; 灰度 (解bug)-&gt; 全量</p>
-<p>默认测试完成后无明显bug.这个周期中如果要加入一个代码优化,例如命名,删除无效代码,无效资源,方法抽象,耗时方法优化等等.我老大的意见是在测试期间,也就是上线之前,而我的观点是灰度期间,也就是上线之后.<br>理由是代码优化对于用户的作用几乎没有,完全是程序员对代码的执着.这份执着的时间点我觉得可以推后.少量灰度之后再优化效果也是一样的.另外代码优化也是一个耗时的过程,如果因为这个导致发版延期,我觉得会影响整个团队的士气.</p>
-<p>如上.</p>
+        <h1 id="问题如下"><a href="#问题如下" class="headerlink" title="问题如下"></a>问题如下</h1><p>RelativeLayout中有一个图片和文字,一左一右,顶边,在RTL情况下发现,文字紧贴图片.<br><a id="more"></a></p>
+<p>代码如下:</p>
+<pre><code>&lt;RelativeLayout
+     android:id=&quot;@+id/rl_0&quot;
+     android:layout_width=&quot;match_parent&quot;
+     android:layout_height=&quot;wrap_content&quot;
+     android:layout_marginBottom=&quot;20dp&quot;&gt;
+
+     &lt;ImageView
+         android:id=&quot;@+id/iv_0&quot;
+         android:layout_width=&quot;wrap_content&quot;
+         android:layout_height=&quot;wrap_content&quot;
+         android:src=&quot;@mipmap/ic_launcher&quot; /&gt;
+
+     &lt;TextView
+         android:layout_width=&quot;wrap_content&quot;
+         android:layout_height=&quot;wrap_content&quot;
+         android:layout_marginBottom=&quot;20dp&quot;
+         android:layout_toEndOf=&quot;@+id/iv_0&quot;
+         android:layout_toRightOf=&quot;@+id/iv_0&quot;
+         android:text=&quot;目标布局在ltr的时候表现良好,在rtl的情况下会暴露问题,让人感觉gravity属性失效.&quot; /&gt;
+
+     &lt;TextView
+         android:layout_width=&quot;wrap_content&quot;
+         android:layout_height=&quot;wrap_content&quot;
+         android:layout_alignParentBottom=&quot;true&quot;
+         android:layout_alignParentEnd=&quot;true&quot;
+         android:layout_alignParentRight=&quot;true&quot;
+         android:layout_toEndOf=&quot;@+id/iv_0&quot;
+         android:layout_toRightOf=&quot;@+id/iv_0&quot;
+         android:ellipsize=&quot;end&quot;
+         android:gravity=&quot;end&quot;
+         android:maxLines=&quot;1&quot;
+         android:singleLine=&quot;true&quot;
+         android:text=&quot;--------------点击+++++++++++&quot; /&gt;
+
+ &lt;/RelativeLayout&gt;
+</code></pre><p>研究一番后发现”点击”TextView的gravity看似失效了.</p>
+<p>其实是在设置了<code>layout_alignParentEnd</code>和<code>android:layout_toEndOf</code>属性后TextView的边界已经固定死了,而不是wrap_content,gravity仍然生效,不过end还是之前的LRT布局情况下的end.</p>
+<p>最后同事在<a href="https://stackoverflow.com/questions/36996493/androidgravity-start-in-rtl-aligns-the-text-to-left-not-right" target="_blank" rel="external">StackOver</a>Flow找到了一点蛛丝马迹,添加<code>android:textAlignment=&quot;viewEnd&quot;</code>即可.说实话,这玩意儿平时还真没用过.</p>
+<p>在码云上写了Demo记录一下,<a href="https://git.oschina.net/50k/RelativelayoutAndTextViewRTL" target="_blank" rel="external">地址</a></p>
 
       
     </div>
@@ -481,7 +537,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2017/08/03/快速迭代与优秀程序员的执着.html" title="快速迭代与优秀程序员的执着">http://yoursite.com/2017/08/03/快速迭代与优秀程序员的执着.html</a>
+      <a href="http://yoursite.com/2017/08/08/RelativeLayoutAndRTL.html" title="RelativeLayout中TextView适配RTL大坑记录">http://yoursite.com/2017/08/08/RelativeLayoutAndRTL.html</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -495,6 +551,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/RelativeLayout-TextView-RTL适配/" rel="tag"># RelativeLayout TextView RTL适配</a>
+          
+            <a href="/tags/TextView-gravity失效/" rel="tag"># TextView gravity失效</a>
+          
+        </div>
+      
 
       
       
@@ -504,8 +568,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/develop_for_test.html" rel="next" title="面向测试开发的一些思考">
-                <i class="fa fa-chevron-left"></i> 面向测试开发的一些思考
+              <a href="/2017/08/03/快速迭代与优秀程序员的执着.html" rel="next" title="快速迭代与优秀程序员的执着">
+                <i class="fa fa-chevron-left"></i> 快速迭代与优秀程序员的执着
               </a>
             
           </div>
@@ -513,10 +577,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/08/RelativeLayoutAndRTL.html" rel="prev" title="RelativeLayout中TextView适配RTL大坑记录">
-                RelativeLayout中TextView适配RTL大坑记录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -678,7 +738,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#快速迭代与优秀程序员的执着"><span class="nav-number">1.</span> <span class="nav-text">快速迭代与优秀程序员的执着</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题如下"><span class="nav-number">1.</span> <span class="nav-text">问题如下</span></a></li></ol></div>
             
 
           </div>
