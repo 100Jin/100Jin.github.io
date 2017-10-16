@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "1035666102011",
+    "project_id": "themestore-44348"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035666102011:android:a6c4351f38ffa806",
+        "android_client_info": {
+          "package_name": "com.tcl.hawk.ts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEGZ6rDaLqWmch7ztXBisTXq9B60xxRmY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
